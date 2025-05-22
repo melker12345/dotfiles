@@ -1,0 +1,71 @@
+* {
+  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+window#waybar {
+  background: transparent;
+  border: none;
+}
+
+#workspaces,
+#clock,
+#battery,
+#network,
+#bluetooth {
+  background: #191919;
+  color: #d8dee9;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin: 0 5px;
+}
+
+/* Workspaces (dots) */
+#workspaces button {
+  padding: 0 4px;
+  background: transparent;
+  color: #888;
+  border: none;
+}
+#workspaces button.active {
+  color: #d8dee9;
+}
+#workspaces button:hover {
+  color: #5af78e;
+}
+
+#battery {
+  color: #d8dee9; /* default on battery, normal */
+}
+
+#battery.charging {
+  color: #5af78e; /* green when charging */
+}
+
+#battery.plugged {
+  color: #57c7ff; /* blue when plugged in */
+}
+
+#battery.critical:not(.charging) {
+  color: #ff5f5f; /* red if critical and not charging */
+}
+§
+/* Network - red when disconnected */
+#network {
+  color: #57c7ff;
+}
+#network.disconnected {
+  color: #ff5f5f;
+}
+
+/* Bluetooth: connected vs disconnected icon flip */
+#bluetooth {
+  background: #191919;
+  color: #d8dee9;
+}
+#bluetooth.disabled {
+  background: #191919;
+  color: #ffffff; /* Rune turns white */
+}
+

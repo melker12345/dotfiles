@@ -1,0 +1,61 @@
+{
+  "layer": "top",
+  "position": "top",
+  "exclusive": true,
+  "passthrough": false,
+  "margin-top": 5,
+  "margin-bottom": 5,
+  "margin-left": 15,
+  "margin-right": 15,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["battery", "network", "bluetooth"],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": ""
+    },
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%a %H:%M:%S}",
+    "interval": 1,
+    "tooltip": false
+  },
+
+  "battery": {
+    "native-path": "/org/freedesktop/UPower/devices/battery_BAT1",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱐋 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
+    "format-icons": [
+      "󰁺", "󰂀", "󰂁", "󰂂", "󰁹"
+    ]
+  },
+
+  "network": {
+    "format-wifi": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "tooltip": false,
+    "interval": 5
+  },
+
+  "bluetooth": {
+    "format": "{icon}",
+    "format-icons": {
+      "enabled": "",
+      "disabled": ""
+    },
+    "tooltip": false
+  }
+}
