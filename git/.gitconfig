@@ -1,0 +1,60 @@
+[user]
+	email = memleoberg@gmail.com
+	name = Melker
+
+[core]
+	editor = nvim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = ~/.gitignore
+
+[color]
+	ui = auto
+
+[init]
+	defaultBranch = master
+
+[pull]
+	rebase = false
+
+[push]
+	default = simple
+	autoSetupRemote = true
+
+[diff]
+	colorMoved = default
+
+[merge]
+	tool = nvim -d
+	conflictstyle = diff3
+
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	dc = diff --cached
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ls = ls-files
+	unstage = reset HEAD --
+	last = log -1 HEAD
+
+[url "ssh://git@localhost:2222/"]
+	insteadOf = https://local-git/
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[credential]
+	helper = store
+
+# SSH key configuration
+[core]
+	sshCommand = "ssh -i ~/.ssh/GHC-melker"
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*"]
+    path = ~/.gitconfig-github
+
+
