@@ -56,8 +56,8 @@
 
 # Use GitHub key for github.com
 [includeIf "hasconfig:remote.*.url:git@github.com:*"]
-    path = .gitconfig-github
+    path = ~/.gitconfig-github
 
 # Use local key for localhost
 [includeIf "hasconfig:remote.*.url:ssh://git@localhost:*"]
-    path = .gitconfig-local
+    path = ~/.gitconfig-local
