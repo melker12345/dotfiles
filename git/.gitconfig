@@ -50,11 +50,7 @@
 [credential]
 	helper = store
 
-# SSH key configuration
 [core]
-	sshCommand = "ssh -i ~/.ssh/GHC-melker"
-
-[includeIf "hasconfig:remote.*.url:git@github.com:*"]
-    path = ~/.gitconfig-github
+	sshCommand = "ssh -i ~/.ssh/GitHub"
 
 
