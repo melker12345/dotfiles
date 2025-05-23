@@ -41,23 +41,12 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 
+[credential]
+	helper = store
+
 [url "ssh://git@localhost:2222/"]
 	insteadOf = https://local-git/
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
-[credential]
-	helper = store
-
-# Default to local key
-[core]
-	sshCommand = "ssh -i ~/.ssh/GHC-melker"
-
-# Use GitHub key for github.com
-[includeIf "hasconfig:remote.*.url:git@github.com:*"]
-    path = ~/.gitconfig-github
-
-# Use local key for localhost
-[includeIf "hasconfig:remote.*.url:ssh://git@localhost:*"]
-    path = ~/.gitconfig-local
