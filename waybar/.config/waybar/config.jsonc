@@ -10,7 +10,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["battery", "network", "bluetooth"],
+  "modules-right": ["cpu", "memory", "battery", "network", "bluetooth"],
 
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -57,5 +57,16 @@
       "disabled": ""
     },
     "tooltip": false
+  },
+
+  "cpu": {
+    "format": "CPU: {usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": "RAM: {percentage}%",
+    "interval": 5
   }
 }
+
