@@ -1,38 +1,45 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
+## Set the Zsh configuration directory
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+## Set the theme
+ZSH_THEME="pure" # set by `omz`
 
+# Enable color support
+#export CLICOLOR=1
+#export LSCOLORS=GxFxCxDxBxegedabagacad
+
+# Plugins
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf-tab)
 
+# Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
-# Better ZSH history
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-
-setopt hist_ignore_all_dups     # Ignore duplicate commands
-setopt hist_reduce_blanks       # Remove superfluous blanks
-setopt share_history            # Share command history between sessions
-setopt inc_append_history       # Write history immediately
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-
-# eval $(keychain --eval --quiet ~/.ssh/GitHub)
+# Use eza/exa for file listing with icons (after Oh My Zsh to override defaults)
+#if command -v eza &> /dev/null; then
+#    alias ls='eza --icons --color=auto'
+#    alias ll='eza -l --icons --color=auto'
+#    alias la='eza -la --icons --color=auto'
+#    alias tree='eza --tree --icons --color=auto'
+#elif command -v exa &> /dev/null; then
+#    alias ls='exa --icons --color=auto'
+#    alias ll='exa -l --icons --color=auto'
+#    alias la='exa -la --icons --color=auto'
+#    alias tree='exa --tree --icons --color=auto'
+#else
+#    alias ls='ls --color=auto'
+#    alias ll='ls -l --color=auto'
+#    alias la='ls -la --color=auto'
+#fi
 
 
+# Option 2: Use Oh My Zsh colors (uncomment to try)
+# ZSH_DISABLE_COMPFIX="true"
+# Uncomment the line below to use Oh My Zsh's built-in colors instead of eza
+# alias ls='ls --color=auto'
+# alias ll='ls -l --color=auto'
+# alias la='ls -la --color=auto'
 
-# Created by `pipx` on 2025-08-08 16:58:18
-export PATH="$PATH:/home/melker/.local/bin"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
+# Load completion system
+zstyle :compinstall filename '/home/melker/.zshrc'
+#autoload -Uz compinit
+compinit

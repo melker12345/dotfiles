@@ -20,6 +20,20 @@ vim.opt.guifont = "Hack Nerd Font:h12"
 vim.cmd('syntax on')
 vim.o.clipboard = 'unnamedplus'
 
+-- Rose Pine theme configuration
+require('rose-pine').setup({
+    disable_background = true,  -- makes it transparent
+    disable_float_background = true,
+    dim_inactive_windows = false,
+    styles = {
+        italic = false,
+        transparency = true,
+    },
+})
+
+vim.cmd('colorscheme rose-pine')
+
+vim.api.nvim_set_keymap('n', '<leader>', ':Explore<CR>',  { noremap = true, silent = true })
 -- Completion popup behavior and Ctrl+Space mapping (omnifunc)
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>')
