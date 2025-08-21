@@ -8,9 +8,7 @@ lint.linters_by_ft = {
     javascriptreact = { 'eslint_d' },
     typescriptreact = { 'eslint_d' },
     go = { 'golangcilint' },
-    lua = { 'luacheck' },
     json = { 'jsonlint' },
-    markdown = { 'markdownlint' },
     html = { 'htmlhint' },
     css = { 'stylelint' },
 }

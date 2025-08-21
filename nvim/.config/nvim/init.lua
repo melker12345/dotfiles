@@ -38,6 +38,7 @@ vim.api.nvim_set_keymap('n', '<leader>', ':Explore<CR>',  { noremap = true, sile
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>')
 vim.keymap.set('i', '<C-@>', '<C-x><C-o>') -- some terminals send Ctrl+@
+vim.api.nvim_set_keymap('n', '<leader>e', ':Exp<CR>', { noremap = true, silent = true })
 
 --
 -- LSP
