@@ -44,9 +44,3 @@
 [credential]
 	helper = store
 
-[url "ssh://git@localhost:2222/"]
-	insteadOf = https://local-git/
-
-[url "git@github.com:"]
-	insteadOf = https://github.com/
-

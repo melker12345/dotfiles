@@ -21,24 +21,29 @@ vim.cmd('syntax on')
 vim.o.clipboard = 'unnamedplus'
 
 -- Rose Pine theme configuration
-require('rose-pine').setup({
-    disable_background = true,  -- makes it transparent
-    disable_float_background = true,
-    dim_inactive_windows = false,
-    styles = {
-        italic = false,
-        transparency = true,
-    },
-})
-
-vim.cmd('colorscheme rose-pine')
+vim.schedule(function()
+    local rose_pine_ok, rose_pine = pcall(require, 'rose-pine')
+    if rose_pine_ok then
+        rose_pine.setup({
+            disable_background = true,  -- makes it transparent
+            disable_float_background = true,
+            dim_inactive_windows = false,
+            styles = {
+                italic = false,
+                transparency = true,
+            },
+        })
+        vim.cmd('colorscheme rose-pine')
+    else
+        vim.notify('Rose Pine theme not found - installing...', vim.log.levels.WARN)
+    end
+end)
 
 vim.api.nvim_set_keymap('n', '<leader>', ':Explore<CR>',  { noremap = true, silent = true })
 -- Completion popup behavior and Ctrl+Space mapping (omnifunc)
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>')
 vim.keymap.set('i', '<C-@>', '<C-x><C-o>') -- some terminals send Ctrl+@
-vim.api.nvim_set_keymap('n', '<leader>e', ':Exp<CR>', { noremap = true, silent = true })
 
 --
 -- LSP
@@ -85,4 +90,3 @@ end
 --
 pcall(require, 'config.lsp')
 pcall(require, 'config.lint')
-

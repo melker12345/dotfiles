@@ -14,6 +14,14 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf-tab)
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
+# Load pure theme if it's not loaded as a theme
+#if [[ "$ZSH_THEME" != "pure" ]]; then
+#    fpath+=(/home/melker/.oh-my-zsh/custom/themes/pure)
+#    autoload -U promptinit; promptinit
+#    prompt pure
+#fi
+
+
 # Use eza/exa for file listing with icons (after Oh My Zsh to override defaults)
 #if command -v eza &> /dev/null; then
 #    alias ls='eza --icons --color=auto'
@@ -43,3 +51,4 @@ source $ZSH/oh-my-zsh.sh
 zstyle :compinstall filename '/home/melker/.zshrc'
 #autoload -Uz compinit
 compinit
+export PATH="$HOME/.cargo/bin:$PATH"

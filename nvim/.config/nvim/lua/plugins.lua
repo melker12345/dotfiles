@@ -48,10 +48,7 @@ return packer.startup(function(use)
     -- Colorscheme
     use({
         'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
+        as = 'rose-pine'
     })
 
     if packer_bootstrap then
