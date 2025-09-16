@@ -1,0 +1,15 @@
+default_mode: default
+
+keymap:
+  - name: Brackets
+    remap:
+      # Right Alt + f/d/s -> opening brackets [{(
+      RightAlt-f: [leftshift-KEY_8]  # parenleft (
+      RightAlt-d: [rightalt-KEY_7]   # braceleft {
+      RightAlt-s: [rightalt-KEY_8]   # bracketleft [
+
+      # Left Alt + j/k/l -> closing brackets )}]
+      LeftAlt-j: [leftshift-KEY_9]   # parenright )
+      LeftAlt-k: [rightalt-KEY_0]    # braceright }
+      LeftAlt-l: [rightalt-KEY_9]    # bracketright ]
+
