@@ -1,6 +1,4 @@
---
 -- THIS IS GOOD DON'T TOUCH
---
 
 -- set leader
 vim.g.mapleader = " "
@@ -39,7 +37,7 @@ vim.schedule(function()
     end
 end)
 
-vim.api.nvim_set_keymap('n', '<leader>', ':Explore<CR>',  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':Explore<CR>',  { noremap = true, silent = true })
 -- Completion popup behavior and Ctrl+Space mapping (omnifunc)
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>')
@@ -68,8 +66,8 @@ if harpoon_ok then
     local mark = require('harpoon.mark')
     local ui = require('harpoon.ui')
 
-    -- Open Harpoon menu: <leader>pv
-    vim.keymap.set('n', '<leader>pv', ui.toggle_quick_menu, { desc = 'Harpoon: Toggle menu' })
+    -- Open Harpoon menu: Ctrl+Space
+    vim.keymap.set('n', '<C-Space>', ui.toggle_quick_menu, { desc = 'Harpoon: Toggle menu' })
 
     -- Buffer navigation: <leader>h/j/k/l -> 1/2/3/4
     vim.keymap.set('n', '<leader>h', function() ui.nav_file(1) end, { desc = 'Harpoon: Go to file 1' })
@@ -77,8 +75,8 @@ if harpoon_ok then
     vim.keymap.set('n', '<leader>k', function() ui.nav_file(3) end, { desc = 'Harpoon: Go to file 3' })
     vim.keymap.set('n', '<leader>l', function() ui.nav_file(4) end, { desc = 'Harpoon: Go to file 4' })
 
-    -- Add file to Harpoon: Ctrl+Space in normal mode
-    vim.keymap.set('n', '<C-Space>', mark.add_file, { desc = 'Harpoon: Add file' })
+    -- Add file to Harpoon: Ctrl+a in normal mode
+    vim.keymap.set('n', '<C-a>', mark.add_file, { desc = 'Harpoon: Add file' })
 else
     vim.schedule(function()
         vim.notify('Harpoon not available yet (installing?). Keymaps will activate once installed.', vim.log.levels.INFO)
@@ -90,3 +88,4 @@ end
 --
 pcall(require, 'config.lsp')
 pcall(require, 'config.lint')
+pcall(require, 'config.treesitter')

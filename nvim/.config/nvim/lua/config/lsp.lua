@@ -10,11 +10,11 @@ mason.setup()
 mason_lspconfig.setup({
     ensure_installed = {
         'lua_ls',
-        'tsserver',
         'basedpyright',
-        'ruff_lsp',
+        'ruff',
         'gopls',
         'rust_analyzer',
+        'clangd',
     },
     automatic_installation = true,
 })
@@ -72,8 +72,8 @@ mason_lspconfig.setup_handlers({
             },
         })
     end,
-    ['ruff_lsp'] = function()
-        lspconfig.ruff_lsp.setup({
+    ['ruff'] = function()
+        lspconfig.ruff.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             init_options = {

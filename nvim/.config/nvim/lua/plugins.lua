@@ -45,6 +45,12 @@ return packer.startup(function(use)
     -- Linting (simple, external executables)
     use 'mfussenegger/nvim-lint'
 
+    -- Tree-sitter for better syntax highlighting
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+
     -- Colorscheme
     use({
         'rose-pine/neovim',
